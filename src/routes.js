@@ -6,20 +6,20 @@ const users = [
     id: 1,
     name: "Fernando",
     email: "test@gmail.com",
-    passoword: "123",
+    password: "123", // Corrigido aqui
   },
 ];
 
 routes.post("/login", (req, res) => {
-  const { email, passoword } = req.body;
+  const { email, password } = req.body; // Corrigido aqui
   const user = users.find(
-    (user) => user.email === email && user.passoword === passoword
+    (user) => user.email === email && user.password === password // Corrigido aqui
   );
 
   if (user) {
     return res.status(200).json(user);
   }
-  return res.status(401).json({ message: "Credencias invalida" });
+  return res.status(401).json({ message: "Credenciais inválidas" }); // Corrigido aqui
 });
 
 module.exports = routes;
